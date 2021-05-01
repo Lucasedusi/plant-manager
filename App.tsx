@@ -1,13 +1,12 @@
 import 'react-native-gesture-handler';
 import React from 'react';
-// import Welcome from './src/pages/Welcome';
-// import Identification from './src/pages/Identification';
-import Confirmation from './src/pages/Confirmation';
+
+import Routes from './src/routes';
 
 const App: React.FC = () => {
   return (
     <>
-      <Confirmation />
+      <Routes />
     </>
   );
 };
