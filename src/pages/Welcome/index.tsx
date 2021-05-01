@@ -5,8 +5,15 @@ import { Container, Wrapper, Title, SubTitle, Button } from './styles';
 import Icon from 'react-native-vector-icons/Feather';
 
 import wateringImg from '../../assets/watering.png';
+import { useNavigation } from '@react-navigation/core';
 
 const Welcome: React.FC = () => {
+  const navigation = useNavigation();
+
+  const handleStart = () => {
+    navigation.navigate('Identification');
+  };
+
   return (
     <Container>
       <Wrapper>
@@ -21,7 +28,7 @@ const Welcome: React.FC = () => {
           sempre que precisar.
         </SubTitle>
 
-        <Button activeOpacity={0.8}>
+        <Button onPress={handleStart} activeOpacity={0.8}>
           <Icon name="chevron-right" size={26} color="#fff" />
         </Button>
       </Wrapper>
