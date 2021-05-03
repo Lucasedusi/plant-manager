@@ -24,7 +24,9 @@ const Welcome: React.FC = () => {
         <Image source={wateringImg} />
 
         <SubTitle>
-          Não esqueça mais de reguar suas plantas. Nós cuidamos de lembrar você
+          Não esqueça mais de reguar suas{'\n'}plantas. Nós cuidamos de lembrar
+          você
+          {'\n'}
           sempre que precisar.
         </SubTitle>
 

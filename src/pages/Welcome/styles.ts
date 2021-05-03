@@ -14,9 +14,10 @@ export const Wrapper = styled.View`
 export const Title = styled.Text`
   margin-top: 15px;
   font-size: 28px;
-  font-weight: bold;
   text-align: center;
   color: #52665a;
+  /* font-weight: bold */
+  font-family: 'Jost-Medium';
   line-height: 38px;
 `;
 
@@ -26,6 +27,7 @@ export const SubTitle = styled.Text`
   color: #52665a;
   font-weight: 800;
   line-height: 32px;
+  font-family: 'Jost-Regular';
 `;
 
 export const Button = styled.TouchableOpacity`
