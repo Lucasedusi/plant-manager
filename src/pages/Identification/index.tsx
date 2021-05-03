@@ -1,8 +1,10 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, { useState } from 'react';
+import { TouchableWithoutFeedback, Keyboard } from 'react-native';
+import { useNavigation } from '@react-navigation/core';
 import {
   Container,
-  Keyboard,
+  KeyboardUse,
   Content,
   Form,
   Emoji,
@@ -18,6 +20,8 @@ const Identification: React.FC = () => {
   const [isFilled, setIsFilled] = useState(false);
   const [name, setName] = useState<string>();
 
+  const navigation = useNavigation();
+
   function handleInputBlur() {
     setIsfocused(false);
     setIsFilled(!!name);
@@ -32,29 +36,35 @@ const Identification: React.FC = () => {
     setName(value);
   }
 
+  const handleSubmit = () => {
+    navigation.navigate('Confirmation');
+  };
+
   return (
     <Container>
-      <Keyboard>
-        <Content>
-          <Form>
-            <Emoji>{isFilled ? '😀' : '🙂'}</Emoji>
+      <KeyboardUse>
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+          <Content>
+            <Form>
+              <Emoji>{isFilled ? '😀' : '🙂'}</Emoji>
 
-            <Title>Como podemos{'\n'}chamar você</Title>
+              <Title>Como podemos{'\n'}chamar você</Title>
 
-            <TextInput
-              style={(isFocused || isFilled) && { borderColor: '#32B768' }}
-              placeholder="Digite um nome"
-              onBlur={handleInputBlur}
-              onFocus={handleInputFocus}
-              onChangeText={handleInputChange}
-            />
+              <TextInput
+                style={(isFocused || isFilled) && { borderColor: '#32B768' }}
+                placeholder="Digite um nome"
+                onBlur={handleInputBlur}
+                onFocus={handleInputFocus}
+                onChangeText={handleInputChange}
+              />
 
-            <Footer>
-              <Button />
-            </Footer>
-          </Form>
-        </Content>
-      </Keyboard>
+              <Footer>
+                <Button title="Confirmar" onPress={handleSubmit} />
+              </Footer>
+            </Form>
+          </Content>
+        </TouchableWithoutFeedback>
+      </KeyboardUse>
     </Container>
   );
 };
