@@ -16,8 +16,7 @@ export const Title = styled.Text`
   font-size: 28px;
   text-align: center;
   color: #52665a;
-  /* font-weight: bold */
-  font-family: 'Jost-Medium';
+  font-family: 'Jost-Bold';
   line-height: 38px;
 `;
 

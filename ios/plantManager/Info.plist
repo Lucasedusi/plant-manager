@@ -73,6 +73,9 @@
 		<string>Octicons.ttf</string>
 		<string>SimpleLineIcons.ttf</string>
 		<string>Zocial.ttf</string>
+		<string>Jost-SemiBold.ttf</string>
+		<string>Jost-Bold.ttf</string>
+		<string>Jost-Light.ttf</string>
 	</array>
 </dict>
 </plist>

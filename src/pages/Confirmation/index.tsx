@@ -2,8 +2,15 @@ import React from 'react';
 
 import { Container, Content, Emoji, Title, SubTitle, Footer } from './styles';
 import Button from '../../components/Button';
+import { useNavigation } from '@react-navigation/core';
 
 const Confirmation: React.FC = () => {
+  const navigation = useNavigation();
+
+  const handleMoveOn = () => {
+    navigation.navigate('Dashboard');
+  };
+
   return (
     <Container>
       <Content>
@@ -14,7 +21,7 @@ const Confirmation: React.FC = () => {
           cuidado.
         </SubTitle>
         <Footer>
-          <Button title="Começar" />
+          <Button title="Começar" onPress={handleMoveOn} />
         </Footer>
       </Content>
     </Container>
