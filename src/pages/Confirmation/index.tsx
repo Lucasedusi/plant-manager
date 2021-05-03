@@ -14,7 +14,7 @@ const Confirmation: React.FC = () => {
           cuidado.
         </SubTitle>
         <Footer>
-          <Button />
+          <Button title="Começar" />
         </Footer>
       </Content>
     </Container>

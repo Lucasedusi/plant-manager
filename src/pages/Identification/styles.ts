@@ -12,7 +12,7 @@ export const Content = styled.View`
   width: 100%;
 `;
 
-export const Keyboard = styled.KeyboardAvoidingView`
+export const KeyboardUse = styled.KeyboardAvoidingView`
   flex: 1;
   width: 100%;
   align-items: center;
