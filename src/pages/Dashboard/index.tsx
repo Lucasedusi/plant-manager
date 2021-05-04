@@ -28,10 +28,21 @@ interface PlantsProps {
 const Dashboard: React.FC = () => {
   const [enviroments, setEnviroments] = useState<EnviromentProps[]>([]);
   const [plants, setPlants] = useState<PlantsProps[]>([]);
+  const [filteredPlants, setFilteredPlants] = useState<PlantsProps[]>([]);
   const [enviromentsSelected, setEnviromentsSelected] = useState('all');
 
   const handleEnviromentSelected = (environment: string) => {
     setEnviromentsSelected(environment);
+
+    if (environment === 'all') {
+      return setFilteredPlants(plants);
+    }
+
+    const filtered = plants.filter(plant =>
+      plant.environments.includes(environment),
+    );
+
+    setFilteredPlants(filtered);
   };
 
   useEffect(() => {
@@ -86,7 +97,7 @@ const Dashboard: React.FC = () => {
 
       <ListCard>
         <FlatList
-          data={plants}
+          data={filteredPlants}
           renderItem={({ item }) => <PlantCardPrimary data={item} />}
           showsVerticalScrollIndicator={false}
           numColumns={2}
