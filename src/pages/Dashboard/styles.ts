@@ -9,10 +9,16 @@ export const Content = styled.View`
   padding: 10px 30px;
 `;
 
-export const List = styled.FlatList`
+export const List = styled.View`
   height: 48px;
   padding-bottom: 5px;
   margin: 20px 0 0 32px;
+`;
+
+export const ListCard = styled.View`
+  flex: 1;
+  padding: 12px 23px;
+  justify-content: center;
 `;
 
 export const Title = styled.Text`
