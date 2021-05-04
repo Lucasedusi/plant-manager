@@ -24,7 +24,7 @@ export const Title = styled.Text`
   color: #52665a;
   line-height: 30px;
   margin-top: 15px;
-  font-weight: bold;
+  font-family: 'Jost-Bold';
 `;
 export const SubTitle = styled.Text`
   font-size: 17px;

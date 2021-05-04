@@ -22,19 +22,19 @@ const Identification: React.FC = () => {
 
   const navigation = useNavigation();
 
-  function handleInputBlur() {
+  const handleInputBlur = () => {
     setIsfocused(false);
     setIsFilled(!!name);
-  }
+  };
 
-  function handleInputFocus() {
+  const handleInputFocus = () => {
     setIsfocused(true);
-  }
+  };
 
-  function handleInputChange(value: string) {
+  const handleInputChange = (value: string) => {
     setIsFilled(!!value);
     setName(value);
-  }
+  };
 
   const handleSubmit = () => {
     navigation.navigate('Confirmation');

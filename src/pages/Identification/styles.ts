@@ -22,10 +22,10 @@ export const KeyboardUse = styled.KeyboardAvoidingView`
 export const Title = styled.Text`
   color: #52665a;
   font-size: 24px;
-  font-weight: bold;
   line-height: 34px;
   text-align: center;
   margin-top: 20px;
+  font-family: 'Jost-Bold';
 `;
 
 export const Form = styled.View`
