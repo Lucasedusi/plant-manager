@@ -2,9 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { FlatList } from 'react-native';
 
 import { Container, Content, Title, SubTitle, List, ListCard } from './styles';
+
 import Header from '../../components/Header';
 import EnviromentButtom from '../../components/Enviroment';
 import PlantCardPrimary from '../../components/PlantCardPrimary';
+import Load from '../../components/Load';
+
 import api from '../../services/api';
 
 interface EnviromentProps {
@@ -30,6 +33,7 @@ const Dashboard: React.FC = () => {
   const [plants, setPlants] = useState<PlantsProps[]>([]);
   const [filteredPlants, setFilteredPlants] = useState<PlantsProps[]>([]);
   const [enviromentsSelected, setEnviromentsSelected] = useState('all');
+  const [loading, setLoading] = useState(true);
 
   const handleEnviromentSelected = (environment: string) => {
     setEnviromentsSelected(environment);
@@ -66,11 +70,16 @@ const Dashboard: React.FC = () => {
     async function fetchPlants() {
       const { data } = await api.get('plants?_sort=name&_order=asc');
       setPlants(data);
+      setFilteredPlants(data);
+      setLoading(false);
     }
 
     fetchPlants();
   }, []);
 
+  if (loading) {
+    return <Load />;
+  }
   return (
     <Container>
       <Content>
