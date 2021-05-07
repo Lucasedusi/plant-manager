@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Alert, Platform } from 'react-native';
-
 import {
   Container,
   PlantName,
@@ -16,26 +15,16 @@ import {
 } from './styles';
 
 import { useRoute } from '@react-navigation/core';
-import DateTimePicker, { Event } from '@react-native-community/datetimepicker';
 import { format, isBefore } from 'date-fns';
-
 import { SvgFromUri } from 'react-native-svg';
+import { PlantProps, savePlant } from '../../libs/storage';
+
+import DateTimePicker, { Event } from '@react-native-community/datetimepicker';
 import Button from '../../components/Button';
 import waterdrop from '../../assets/waterdrop.png';
 
 interface Params {
-  plant: {
-    id: 1;
-    name: string;
-    about: string;
-    water_tips: string;
-    photo: string;
-    environments: [string];
-    frequency: {
-      times: number;
-      repeat_every: string;
-    };
-  };
+  plant: PlantProps;
 }
 
 const PlantSave: React.FC = () => {
@@ -62,6 +51,17 @@ const PlantSave: React.FC = () => {
 
   const handleDatePickerForAndroid = () => {
     setShowDatePicker(oldState => !oldState);
+  };
+
+  const handleSave = async () => {
+    try {
+      await savePlant({
+        ...plant,
+        dateTimeNotification: selectedDateTime,
+      });
+    } catch {
+      Alert.alert('Não foi possível salvar 😥');
+    }
   };
 
   return (
@@ -99,7 +99,7 @@ const PlantSave: React.FC = () => {
           </TimeButton>
         )}
 
-        <Button title="Cadastrar Planta" onPress={() => {}} />
+        <Button title="Cadastrar Planta" onPress={handleSave} />
       </PlantController>
     </Container>
   );
