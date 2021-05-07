@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 import { FlatList, ActivityIndicator } from 'react-native';
 
@@ -9,6 +10,7 @@ import PlantCardPrimary from '../../components/PlantCardPrimary';
 import Load from '../../components/Load';
 
 import api from '../../services/api';
+import { useNavigation } from '@react-navigation/core';
 
 interface EnviromentProps {
   key: string;
@@ -37,7 +39,8 @@ const Dashboard: React.FC = () => {
 
   const [page, setPage] = useState(1);
   const [loadingMore, setLoadingMore] = useState(false);
-  const [loadedAll, setLoadedAll] = useState(false);
+
+  const navigation = useNavigation();
 
   const handleEnviromentSelected = (environment: string) => {
     setEnviromentsSelected(environment);
@@ -84,6 +87,10 @@ const Dashboard: React.FC = () => {
     fetchPlants();
   };
 
+  const handlePlantSelect = (plant: PlantsProps) => {
+    navigation.navigate('PlantSave', { plant });
+  };
+
   useEffect(() => {
     async function fetchEnviroment() {
       const { data } = await api.get(
@@ -120,6 +127,7 @@ const Dashboard: React.FC = () => {
       <List>
         <FlatList
           data={enviroments}
+          keyExtractor={item => String(item.key)}
           renderItem={({ item }) => (
             <EnviromentButtom
               title={item.title}
@@ -135,7 +143,13 @@ const Dashboard: React.FC = () => {
       <ListCard>
         <FlatList
           data={filteredPlants}
-          renderItem={({ item }) => <PlantCardPrimary data={item} />}
+          keyExtractor={item => String(item.id)}
+          renderItem={({ item }) => (
+            <PlantCardPrimary
+              data={item}
+              onPress={() => handlePlantSelect(item)}
+            />
+          )}
           showsVerticalScrollIndicator={false}
           numColumns={2}
           onEndReachedThreshold={0.1}

@@ -6,12 +6,13 @@ import Welcome from '../pages/Welcome';
 import Identification from '../pages/Identification';
 import Confirmation from '../pages/Confirmation';
 import Dashboard from '../pages/Dashboard';
+import PlantSave from '../pages/PlantSave';
 
 const stackRoutes = createStackNavigator();
 
 const AppRoutes: React.FC = () => (
   <stackRoutes.Navigator
-    initialRouteName="Dashboard"
+    // initialRouteName="Dashboard"
     headerMode="none"
     screenOptions={{
       cardStyle: {
@@ -22,6 +23,7 @@ const AppRoutes: React.FC = () => (
     <stackRoutes.Screen name="Identification" component={Identification} />
     <stackRoutes.Screen name="Confirmation" component={Confirmation} />
     <stackRoutes.Screen name="Dashboard" component={Dashboard} />
+    <stackRoutes.Screen name="PlantSave" component={PlantSave} />
   </stackRoutes.Navigator>
 );
 
