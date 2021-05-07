@@ -36,7 +36,7 @@ export const PlantAbout = styled.Text`
 
 export const PlantController = styled.View`
   background-color: #fff;
-  padding: 0;
+  padding: 20px 20px;
   padding-bottom: 20px;
 `;
 
@@ -46,6 +46,9 @@ export const TipContainer = styled.View`
   align-items: center;
   background-color: #ebf6ff;
   padding: 20px;
+  border-radius: 20px;
+  position: relative;
+  bottom: 50px;
 `;
 
 export const TipImage = styled.Image`
@@ -65,8 +68,24 @@ export const TipText = styled.Text`
 
 export const AlertLabel = styled.Text`
   font-family: 'Jost-Regular';
-  font-size: 13px;
+  font-size: 14px;
+  margin-bottom: 8px;
   line-height: 23px;
   text-align: center;
   color: #5c6660;
+`;
+
+export const TimeButton = styled.TouchableOpacity`
+  width: 100%;
+  background-color: #f0f0f0;
+  align-items: center;
+  padding: 12px;
+  margin-bottom: 30px;
+  border-radius: 10px;
+`;
+
+export const TimeText = styled.Text`
+  color: #52665a;
+  font-size: 18px;
+  font-family: 'Jost-Regular';
 `;

@@ -87,8 +87,8 @@ const Dashboard: React.FC = () => {
     fetchPlants();
   };
 
-  const handlePlantSelect = () => {
-    navigation.navigate('PlantSave');
+  const handlePlantSelect = (plant: PlantsProps) => {
+    navigation.navigate('PlantSave', { plant });
   };
 
   useEffect(() => {
@@ -145,7 +145,10 @@ const Dashboard: React.FC = () => {
           data={filteredPlants}
           keyExtractor={item => String(item.id)}
           renderItem={({ item }) => (
-            <PlantCardPrimary data={item} onPress={() => handlePlantSelect()} />
+            <PlantCardPrimary
+              data={item}
+              onPress={() => handlePlantSelect(item)}
+            />
           )}
           showsVerticalScrollIndicator={false}
           numColumns={2}
