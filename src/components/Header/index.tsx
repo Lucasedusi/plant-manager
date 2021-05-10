@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-
 import { Container, Content, Greeting, UserName, UserImg } from './styles';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';

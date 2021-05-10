@@ -8,7 +8,7 @@ export const Container = styled.View`
 
 export const PlantInfo = styled.View`
   flex: 1;
-  padding: 30px 50px;
+  padding: 0 30px;
   align-items: center;
   justify-content: center;
   background-color: #f0f0f0;
@@ -20,7 +20,6 @@ export const PlantName = styled.Text`
   line-height: 32px;
   text-align: center;
   color: #52665a;
-  margin-top: 15px;
   text-align: center;
 `;
 
@@ -31,12 +30,12 @@ export const PlantAbout = styled.Text`
   line-height: 25px;
   text-align: center;
   color: #5c6660;
-  margin-top: 10px;
+  margin-top: 5px;
 `;
 
 export const PlantController = styled.View`
   background-color: #fff;
-  padding: 20px 20px;
+  padding: 0 20px;
   padding-bottom: 20px;
 `;
 
@@ -48,7 +47,7 @@ export const TipContainer = styled.View`
   padding: 20px;
   border-radius: 20px;
   position: relative;
-  bottom: 50px;
+  bottom: 30px;
 `;
 
 export const TipImage = styled.Image`

@@ -1,6 +1,6 @@
 import React from 'react';
-import { TouchableOpacityProps } from 'react-native';
 
+import { TouchableOpacityProps } from 'react-native';
 import { ButtonName, TextButton } from './styles';
 
 interface ButtonProps extends TouchableOpacityProps {

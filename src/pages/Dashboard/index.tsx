@@ -1,39 +1,25 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 import { FlatList, ActivityIndicator } from 'react-native';
-
 import { Container, Content, Title, SubTitle, List, ListCard } from './styles';
+import { useNavigation } from '@react-navigation/core';
+import { PlantProps } from 'libs/storage';
 
 import Header from '../../components/Header';
 import EnviromentButtom from '../../components/Enviroment';
 import PlantCardPrimary from '../../components/PlantCardPrimary';
 import Load from '../../components/Load';
-
 import api from '../../services/api';
-import { useNavigation } from '@react-navigation/core';
 
 interface EnviromentProps {
   key: string;
   title: string;
 }
 
-interface PlantsProps {
-  id: 1;
-  name: string;
-  about: string;
-  water_tips: string;
-  photo: string;
-  environments: [string];
-  frequency: {
-    times: number;
-    repeat_every: string;
-  };
-}
-
 const Dashboard: React.FC = () => {
   const [enviroments, setEnviroments] = useState<EnviromentProps[]>([]);
-  const [plants, setPlants] = useState<PlantsProps[]>([]);
-  const [filteredPlants, setFilteredPlants] = useState<PlantsProps[]>([]);
+  const [plants, setPlants] = useState<PlantProps[]>([]);
+  const [filteredPlants, setFilteredPlants] = useState<PlantProps[]>([]);
   const [enviromentsSelected, setEnviromentsSelected] = useState('all');
   const [loading, setLoading] = useState(true);
 
@@ -87,7 +73,7 @@ const Dashboard: React.FC = () => {
     fetchPlants();
   };
 
-  const handlePlantSelect = (plant: PlantsProps) => {
+  const handlePlantSelect = (plant: PlantProps) => {
     navigation.navigate('PlantSave', { plant });
   };
 

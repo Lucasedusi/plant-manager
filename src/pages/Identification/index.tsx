@@ -1,12 +1,6 @@
 /* eslint-disable curly */
 /* eslint-disable react-native/no-inline-styles */
 import React, { useState } from 'react';
-import { Alert } from 'react-native';
-
-import { TouchableWithoutFeedback, Keyboard } from 'react-native';
-import { useNavigation } from '@react-navigation/core';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-
 import {
   Container,
   KeyboardUse,
@@ -17,7 +11,11 @@ import {
   Title,
   Footer,
 } from './styles';
+import { Alert } from 'react-native';
+import { TouchableWithoutFeedback, Keyboard } from 'react-native';
+import { useNavigation } from '@react-navigation/core';
 
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import Button from '../../components/Button';
 
 const Identification: React.FC = () => {
@@ -44,8 +42,12 @@ const Identification: React.FC = () => {
   const handleSubmit = async () => {
     if (!name) return Alert.alert('Me diga seu nome 😥');
 
-    await AsyncStorage.setItem('@plantmanager:user', name);
-    navigation.navigate('Confirmation');
+    try {
+      await AsyncStorage.setItem('@plantmanager:user', name);
+      navigation.navigate('Confirmation');
+    } catch {
+      Alert.alert('Não foi possível salvar o seu nome 😥');
+    }
   };
 
   return (
