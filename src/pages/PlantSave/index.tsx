@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Alert, Platform } from 'react-native';
 import {
   Container,
@@ -17,7 +17,7 @@ import {
 import { useRoute } from '@react-navigation/core';
 import { format, isBefore } from 'date-fns';
 import { SvgFromUri } from 'react-native-svg';
-import { PlantProps, savePlant } from '../../libs/storage';
+import { loadPlant, PlantProps, savePlant } from '../../libs/storage';
 
 import DateTimePicker, { Event } from '@react-native-community/datetimepicker';
 import Button from '../../components/Button';
