@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Alert, Platform } from 'react-native';
 import {
   Container,
@@ -17,11 +17,12 @@ import {
 import { useRoute } from '@react-navigation/core';
 import { format, isBefore } from 'date-fns';
 import { SvgFromUri } from 'react-native-svg';
-import { PlantProps, savePlant } from '../../libs/storage';
+import { loadPlant, PlantProps, savePlant } from '../../libs/storage';
 
 import DateTimePicker, { Event } from '@react-native-community/datetimepicker';
 import Button from '../../components/Button';
 import waterdrop from '../../assets/waterdrop.png';
+import { useNavigation } from '@react-navigation/core';
 
 interface Params {
   plant: PlantProps;
@@ -30,6 +31,8 @@ interface Params {
 const PlantSave: React.FC = () => {
   const [selectedDateTime, setSelectedDateTime] = useState(new Date());
   const [showDatePicker, setShowDatePicker] = useState(Platform.OS === 'ios');
+
+  const navigation = useNavigation();
 
   const route = useRoute();
   const { plant } = route.params as Params;
@@ -58,6 +61,15 @@ const PlantSave: React.FC = () => {
       await savePlant({
         ...plant,
         dateTimeNotification: selectedDateTime,
+      });
+
+      navigation.navigate('Confirmation', {
+        title: 'Tudo Certo',
+        subTitle:
+          'Fique tranquilo que sempre vamos \n lembrar você de cuidar da sua plantinha \n com bastante amor.',
+        buttonTitle: 'Muito Obrigado :D',
+        icon: 'hug',
+        nextScreen: 'MyPlants',
       });
     } catch {
       Alert.alert('Não foi possível salvar 😥');
