@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react';
 
 import { Container, Content, Emoji, Title, SubTitle, Footer } from './styles';
@@ -41,7 +40,7 @@ const Confirmation: React.FC = () => {
         <Title>{title}</Title>
         <SubTitle>{subTitle}</SubTitle>
         <Footer>
-          <Button title="Começar" onPress={handleMoveOn} />
+          <Button title={buttonTitle} onPress={handleMoveOn} />
         </Footer>
       </Content>
     </Container>
