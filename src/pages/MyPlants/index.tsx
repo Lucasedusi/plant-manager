@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import React, { useState, useEffect } from 'react';
 
 import {
@@ -12,7 +13,7 @@ import {
 import waterdrop from '../../assets/waterdrop.png';
 import Header from '../../components/Header';
 import { FlatList } from 'react-native';
-import { loadPlant, PlantProps } from 'libs/storage';
+import { loadPlant, PlantProps } from '../../libs/storage';
 import { formatDistance } from 'date-fns';
 import { pt } from 'date-fns/locale';
 
@@ -54,7 +55,13 @@ const MyPlants: React.FC = () => {
       <Plants>
         <PlantTitle>Próximas Regadas</PlantTitle>
 
-        <FlatList data />
+        <FlatList
+          data={myPlants}
+          keyExtractor={item => String(item.id)}
+          renderItem={item => <SpotlightText>ele</SpotlightText>}
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={{ flex: 1 }}
+        />
       </Plants>
     </Container>
   );
