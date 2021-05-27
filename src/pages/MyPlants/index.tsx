@@ -1,17 +1,19 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable react-native/no-inline-styles */
 import React, { useState, useEffect } from 'react';
 
 import {
   Container,
+  SpotlightBox,
   SpotlightImage,
   SpotlightText,
-  Image,
   Plants,
   PlantTitle,
 } from './styles';
 
 import waterdrop from '../../assets/waterdrop.png';
 import Header from '../../components/Header';
+import PlantCardSecondary from '../../components/PlantCardSecondary';
 import { FlatList } from 'react-native';
 import { loadPlant, PlantProps } from '../../libs/storage';
 import { formatDistance } from 'date-fns';
@@ -47,10 +49,10 @@ const MyPlants: React.FC = () => {
     <Container>
       <Header />
 
-      <SpotlightImage>
-        <Image source={waterdrop} />
+      <SpotlightBox>
+        <SpotlightImage source={waterdrop} />
         <SpotlightText>{wateredNext}</SpotlightText>
-      </SpotlightImage>
+      </SpotlightBox>
 
       <Plants>
         <PlantTitle>Próximas Regadas</PlantTitle>
@@ -58,7 +60,7 @@ const MyPlants: React.FC = () => {
         <FlatList
           data={myPlants}
           keyExtractor={item => String(item.id)}
-          renderItem={item => <SpotlightText>ele</SpotlightText>}
+          renderItem={({ item }) => <PlantCardSecondary data={item} />}
           showsVerticalScrollIndicator={false}
           contentContainerStyle={{ flex: 1 }}
         />
