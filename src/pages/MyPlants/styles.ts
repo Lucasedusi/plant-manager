@@ -1,5 +1,4 @@
 import styled from 'styled-components/native';
-import { FlatList } from 'react-native-gesture-handler';
 
 export const Container = styled.View`
   flex: 1;
@@ -28,7 +27,6 @@ export const SpotlightText = styled.Text`
   flex: 1;
   color: #3d7199;
   padding: 0 20px;
-  text-align: justify;
   font-size: 15px;
   line-height: 23px;
   font-family: 'Jost-Regular';
@@ -46,4 +44,4 @@ export const PlantTitle = styled.Text`
   margin-bottom: 6px;
 `;
 
-export const List = styled(FlatList);
+export const List = styled.View``;

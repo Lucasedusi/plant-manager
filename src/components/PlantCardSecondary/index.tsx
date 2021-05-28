@@ -27,7 +27,7 @@ const PlantCardSecondary: React.FC<PlantsProps> = ({ data, ...rest }) => (
 const styles = StyleSheet.create({
   Container: {
     maxWidth: '100%',
-    paddingHorizontal: 10,
+    paddingHorizontal: 20,
     paddingVertical: 25,
     borderRadius: 20,
     flexDirection: 'row',

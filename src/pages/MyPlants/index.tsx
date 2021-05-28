@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable react-native/no-inline-styles */
 import React, { useState, useEffect } from 'react';
 
 import {
@@ -62,7 +61,6 @@ const MyPlants: React.FC = () => {
           keyExtractor={item => String(item.id)}
           renderItem={({ item }) => <PlantCardSecondary data={item} />}
           showsVerticalScrollIndicator={false}
-          contentContainerStyle={{ flex: 1 }}
         />
       </Plants>
     </Container>

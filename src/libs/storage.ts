@@ -4,7 +4,7 @@ import { format } from 'date-fns';
 export interface PlantProps {
   id: 1;
   name: string;
-  about: string;
+  hour: string;
   water_tips: string;
   photo: string;
   environments: [string];
